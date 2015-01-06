@@ -20,33 +20,21 @@ require 'rest-client'
 # puts RestClient.get(url)
 #
 
-def create_shares
+def create_comments
   url = Addressable::URI.new(
   scheme: 'http',
   host: 'localhost',
   port: 3000,
-  path: '/contact_shares.json'
+  path: '/contacts/2/comments.json'
   ).to_s
 
   puts RestClient.post(
   url,
-  { contact_share: {user_id: 1, contact_id: 2}}
+  { comment: { content: "this is a comment on contact share 2" }}
   )
 end
 
-def update_contacts
-  url = Addressable::URI.new(
-  scheme: 'http',
-  host: 'localhost',
-  port: 3000,
-  path: '/contacts/2.json'
-  ).to_s
 
-  puts RestClient.patch(
-  url,
-  { contact: { name: "Curio" } }
-  )
-end
 
-create_shares
+create_comments
 #create_users
