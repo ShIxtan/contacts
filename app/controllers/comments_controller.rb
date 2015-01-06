@@ -31,14 +31,6 @@ class CommentsController < ApplicationController
     nil
   end
 
-  # def find_id
-  #   find_commentable.id
-  # end
-  #
-  # def find_type
-  #   p "the commentable type is #{find_commentable.class.to_s}"
-  #   find_commentable.class.to_s
-  # end
 
   private
   def comment_params

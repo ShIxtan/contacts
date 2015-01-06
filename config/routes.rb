@@ -5,9 +5,11 @@ Rails.application.routes.draw do
   end
   resources :contacts, only: [:show, :create, :update, :destroy] do
     resources :comments, only: [:index, :create]
+    patch 'favorite', on: :member
   end
   resources :contact_shares, only: [:create, :destroy] do
     resources :comments, only: [:index, :create]
+    patch 'favorite', on: :member
   end
   resources :comments, only: [:destroy] do
     resources :comments, only: [:index, :create]

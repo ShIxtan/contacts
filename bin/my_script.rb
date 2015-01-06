@@ -20,21 +20,20 @@ require 'rest-client'
 # puts RestClient.get(url)
 #
 
-def create_comments
+def favorite
   url = Addressable::URI.new(
   scheme: 'http',
   host: 'localhost',
   port: 3000,
-  path: '/contacts/2/comments.json'
+  path: '/contacts/2/favorite'
   ).to_s
 
-  puts RestClient.post(
-  url,
-  { comment: { content: "this is a comment on contact share 2" }}
+  puts RestClient.patch(
+  url,{}
   )
 end
 
 
 
-create_comments
+favorite
 #create_users

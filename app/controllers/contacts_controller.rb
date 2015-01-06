@@ -25,6 +25,17 @@ class ContactsController < ApplicationController
     render json: Contact.find(params[:id])
   end
 
+  def favorite
+    contact = Contact.update(params[:id],favorite: true)
+    if contact.save
+      render json: contact
+    else
+      render(
+      json: contact.errors.full_messages, status: :unprocessable_entity
+      )
+    end
+  end
+
   def update
     contact = Contact.update(params[:id], contact_params)
     if contact.save
